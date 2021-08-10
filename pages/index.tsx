@@ -13,7 +13,6 @@ export default function Home() {
       </Head>
 
       <main className="w-full min-h-screen bg-day-mobile bg-no-repeat bg-cover">
-        Hi
         <QuoteComp />
       </main>
     </div>
