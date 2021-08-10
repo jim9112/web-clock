@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import QuoteComp from '../components/QuoteComp';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -11,7 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>Hi</main>
+      <main className="w-full min-h-screen bg-day-mobile bg-no-repeat bg-cover">
+        Hi
+        <QuoteComp />
+      </main>
     </div>
   );
 }
