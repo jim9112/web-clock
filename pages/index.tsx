@@ -1,9 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect } from 'react';
 import QuoteComp from '../components/QuoteComp';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
+  useEffect(() => {
+    fetch('http://worldtimeapi.org/api/ip')
+      .then((resp) => resp.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+  }, []);
   return (
     <div>
       <Head>
@@ -13,7 +19,9 @@ export default function Home() {
       </Head>
 
       <main className="w-full min-h-screen bg-day-mobile bg-no-repeat bg-cover">
-        <QuoteComp />
+        <div className="w-full min-h-screen bg-gray-500 bg-opacity-30 px-6 py-8">
+          <QuoteComp />
+        </div>
       </main>
     </div>
   );
