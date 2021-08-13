@@ -6,7 +6,6 @@ const useFetch = (endpoint: string) => {
     const response = await fetch(endpoint);
     const data = await response.json();
     setFetchedData(data);
-    console.log(data.content);
   };
 
   useEffect(() => {
