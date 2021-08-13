@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import MoreButton from '../components/MoreButton';
 import QuoteComp from '../components/QuoteComp';
 import TimeBlock from '../components/TimeBlock';
 import useGetTime from '../hooks/useGetTime';
@@ -28,6 +29,7 @@ export default function Home() {
         <div className="grid w-full min-h-screen bg-gray-500 bg-opacity-30 px-6 py-8">
           <QuoteComp />
           <TimeBlock date={date} />
+          <MoreButton />
         </div>
       </main>
     </div>
