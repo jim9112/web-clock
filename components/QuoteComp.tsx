@@ -11,6 +11,7 @@ interface IData {
 }
 
 const QuoteComp = () => {
+  // i suck at this
   const { getData, fetchedData }: IData = useFetch(
     'https://api.quotable.io/random'
   );
