@@ -13,12 +13,12 @@ const TimeBlock = ({ date }: IDate) => {
   let icon;
   let greeting;
   const greetingAddOn = (
-    <span className="hidden md:inline">, IT&apos;S CURRENTLY</span>
+    <span className='hidden md:inline'>, IT&apos;S CURRENTLY</span>
   );
   if (date.hrs < 16 && date.hrs > 5) {
-    icon = <Image src={sunIcon} alt="sun icon" />;
+    icon = <Image src={sunIcon} alt='sun icon' />;
   } else {
-    icon = <Image src={moonIcon} alt="moon icon" />;
+    icon = <Image src={moonIcon} alt='moon icon' />;
   }
 
   if (date.hrs >= 5 && date.hrs < 12) {
@@ -30,21 +30,20 @@ const TimeBlock = ({ date }: IDate) => {
   }
 
   return (
-    <div className="self-end">
-      <div className="px-6">
-
-      <div className="flex text-white">
-        {icon}
-        {greeting}
-        {greetingAddOn}
-      </div>
-      <div className="flex items-end text-white align-baseline">
-        <p className="text-8xl">
-          {date ? `${date.hrs}:${date.min}` : 'Loading'}
-        </p>
-        <p className="">{date && date.timezone}</p>
-      </div>
-      <MoreButton />
+    <div className='self-end'>
+      <div className='px-6'>
+        <div className='flex text-white'>
+          {icon}
+          {greeting}
+          {greetingAddOn}
+        </div>
+        <div className='flex items-end text-white align-baseline'>
+          <p className='text-8xl'>
+            {date ? `${date.hrs}:${date.min}` : 'Loading'}
+          </p>
+          <p className=''>{date && date.timezone}</p>
+        </div>
+        <MoreButton />
       </div>
     </div>
   );
