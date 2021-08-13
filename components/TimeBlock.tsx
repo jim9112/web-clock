@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import sunIcon from '../public/assets/desktop/icon-sun.svg';
 import moonIcon from '../public/assets/desktop/icon-moon.svg';
+import MoreButton from './MoreButton';
 interface IDate {
   date: {
     hrs: number;
@@ -41,6 +42,7 @@ const TimeBlock = ({ date }: IDate) => {
         </p>
         <p className="">{date && date.timezone}</p>
       </div>
+      <MoreButton />
     </div>
   );
 };
