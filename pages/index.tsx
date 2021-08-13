@@ -15,6 +15,11 @@ interface IDate {
 
 export default function Home() {
   const { date }: IDate = useGetTime();
+  const [displayMore, setDisplayMore] = useState(false);
+
+  const toggleDisplay = () => {
+    setDisplayMore(!displayMore);
+  };
 
   return (
     <div>
@@ -26,8 +31,8 @@ export default function Home() {
 
       <main className='w-full min-h-screen bg-day-mobile bg-no-repeat bg-cover'>
         <div className='grid w-full min-h-screen bg-gray-500 bg-opacity-30 py-8'>
-          <QuoteComp />
-          <TimeBlock date={date} />
+          {!displayMore && <QuoteComp />}
+          <TimeBlock date={date} toggleDisplay={toggleDisplay} />
         </div>
       </main>
     </div>

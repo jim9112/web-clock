@@ -3,13 +3,14 @@ import sunIcon from '../public/assets/desktop/icon-sun.svg';
 import moonIcon from '../public/assets/desktop/icon-moon.svg';
 import MoreButton from './MoreButton';
 interface IDate {
+  toggleDisplay: () => void;
   date: {
     hrs: number;
     min: string;
     timezone: string;
   };
 }
-const TimeBlock = ({ date }: IDate) => {
+const TimeBlock = ({ date, toggleDisplay }: IDate) => {
   let icon;
   let greeting;
   const greetingAddOn = (
@@ -43,7 +44,7 @@ const TimeBlock = ({ date }: IDate) => {
           </p>
           <p className=''>{date && date.timezone}</p>
         </div>
-        <MoreButton />
+        <MoreButton toggleDisplay={toggleDisplay} />
       </div>
     </div>
   );
