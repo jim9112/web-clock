@@ -1,15 +1,21 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import QuoteComp from '../components/QuoteComp';
+import TimeBlock from '../components/TimeBlock';
+import useGetTime from '../hooks/useGetTime';
+
+interface IDate {
+  date: {
+    hrs: number;
+    min: string;
+    timezone: any;
+  };
+}
 
 export default function Home() {
-  useEffect(() => {
-    fetch('http://worldtimeapi.org/api/ip')
-      .then((resp) => resp.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
-  }, []);
+  const { date }: IDate = useGetTime();
+
   return (
     <div>
       <Head>
@@ -19,8 +25,9 @@ export default function Home() {
       </Head>
 
       <main className="w-full min-h-screen bg-day-mobile bg-no-repeat bg-cover">
-        <div className="w-full min-h-screen bg-gray-500 bg-opacity-30 px-6 py-8">
+        <div className="grid w-full min-h-screen bg-gray-500 bg-opacity-30 px-6 py-8">
           <QuoteComp />
+          <TimeBlock date={date} />
         </div>
       </main>
     </div>
