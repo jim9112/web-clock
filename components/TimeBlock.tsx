@@ -5,6 +5,7 @@ import MoreButton from './MoreButton';
 
 interface IDate {
   toggleDisplay: () => void;
+  setDarkMode: any;
   date: {
     hrs: number;
     min: string;
@@ -12,7 +13,7 @@ interface IDate {
   };
 }
 
-const TimeBlock = ({ date, toggleDisplay }: IDate) => {
+const TimeBlock = ({ date, toggleDisplay, setDarkMode }: IDate) => {
   let icon;
   let greeting;
 
@@ -24,8 +25,10 @@ const TimeBlock = ({ date, toggleDisplay }: IDate) => {
   // determine which icon to use based on time of day
   if (date.hrs < 16 && date.hrs > 5) {
     icon = <Image src={sunIcon} alt='sun icon' />;
+    setDarkMode(false);
   } else {
     icon = <Image src={moonIcon} alt='moon icon' />;
+    setDarkMode(true);
   }
 
   // determine which greeting to use based on time of day
