@@ -25,7 +25,7 @@ export default function Home() {
       </Head>
 
       <main className="w-full min-h-screen bg-day-mobile bg-no-repeat bg-cover">
-        <div className="grid w-full min-h-screen bg-gray-500 bg-opacity-30 px-6 py-8">
+        <div className="grid w-full min-h-screen bg-gray-500 bg-opacity-30 py-8">
           <QuoteComp />
           <TimeBlock date={date} />
         </div>

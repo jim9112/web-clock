@@ -15,7 +15,7 @@ const QuoteComp = () => {
     'https://api.quotable.io/random'
   );
   return (
-    <div className="grid grid-flow-col gap-4 text-white">
+    <div className="px-6 grid grid-flow-col gap-4 text-white">
       <div>
         {' '}
         <h1 className="mb-2">{`"${fetchedData?.content}"`}</h1>

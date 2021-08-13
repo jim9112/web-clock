@@ -31,6 +31,8 @@ const TimeBlock = ({ date }: IDate) => {
 
   return (
     <div className="self-end">
+      <div className="px-6">
+
       <div className="flex text-white">
         {icon}
         {greeting}
@@ -43,6 +45,7 @@ const TimeBlock = ({ date }: IDate) => {
         <p className="">{date && date.timezone}</p>
       </div>
       <MoreButton />
+      </div>
     </div>
   );
 };
