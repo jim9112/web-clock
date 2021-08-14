@@ -10,6 +10,10 @@ interface IDate {
     hrs: number;
     min: string;
     timezone: any;
+    dayOfWeek: number;
+    dayOfYear: number;
+    weekNumber: number;
+    fullTimezone: string;
   };
 }
 
@@ -18,9 +22,19 @@ export default function Home() {
   const [displayMore, setDisplayMore] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
+  // toggel extended display based on button press
   const toggleDisplay = () => {
     setDisplayMore(!displayMore);
   };
+
+  // toggle dark mode based on time of day
+  useEffect(() => {
+    if (date.hrs < 16 && date.hrs > 5) {
+      setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
+  }, [date]);
 
   return (
     <div className={darkMode ? 'dark' : ''}>

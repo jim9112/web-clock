@@ -12,6 +12,10 @@ interface IDate {
     hrs: number;
     min: string;
     timezone: string;
+    dayOfWeek: number;
+    dayOfYear: number;
+    weekNumber: number;
+    fullTimezone: string;
   };
 }
 
@@ -32,10 +36,8 @@ const TimeBlock = ({
   // determine which icon to use based on time of day
   if (date.hrs < 16 && date.hrs > 5) {
     icon = <Image src={sunIcon} alt='sun icon' />;
-    setDarkMode(false);
   } else {
     icon = <Image src={moonIcon} alt='moon icon' />;
-    setDarkMode(true);
   }
 
   // determine which greeting to use based on time of day
@@ -63,7 +65,7 @@ const TimeBlock = ({
         </div>
         <MoreButton toggleDisplay={toggleDisplay} />
       </div>
-      {displayMore && <ExpandedView />}
+      {displayMore && <ExpandedView date={date} />}
     </div>
   );
 };

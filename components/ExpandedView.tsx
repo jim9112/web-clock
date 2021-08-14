@@ -1,12 +1,31 @@
-const ExpandedView = () => {
+interface IDate {
+  date: {
+    hrs: number;
+    min: string;
+    timezone: string;
+    dayOfWeek: number;
+    dayOfYear: number;
+    weekNumber: number;
+    fullTimezone: string;
+  };
+}
+
+const ExpandedView = ({ date }: IDate) => {
   return (
     <div className='w-full bg-gray-300'>
-      <h1>Expanded View</h1>
       <ul>
-        <li>CURRENT TIMEZONE</li>
-        <li>DAY OF THE YEAR</li>
-        <li>DAY OF THE WEEK</li>
-        <li>WEEK NUMBER</li>
+        <li>
+          CURRENT TIMEZONE <span>{date.fullTimezone}</span>
+        </li>
+        <li>
+          DAY OF THE YEAR <span>{date.dayOfYear}</span>
+        </li>
+        <li>
+          DAY OF THE WEEK <span>{date.dayOfWeek}</span>
+        </li>
+        <li>
+          WEEK NUMBER <span>{date.weekNumber}</span>
+        </li>
       </ul>
     </div>
   );
