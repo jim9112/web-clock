@@ -51,13 +51,13 @@ const TimeBlock = ({
 
   return (
     <div className='self-end'>
-      <div className='px-6'>
-        <div className='flex text-white'>
+      <div className='px-6 pb-10'>
+        <div className='flex text-white mb-4'>
           {icon}
           {greeting}
           {greetingAddOn}
         </div>
-        <div className='flex items-end text-white align-baseline'>
+        <div className='flex items-end text-white align-baseline mb-4'>
           <p className='text-8xl'>
             {date ? `${date.hrs}:${date.min}` : 'Loading'}
           </p>
