@@ -3,6 +3,7 @@ import sunIcon from '../public/assets/desktop/icon-sun.svg';
 import moonIcon from '../public/assets/desktop/icon-moon.svg';
 import MoreButton from './MoreButton';
 import ExpandedView from './ExpandedView';
+import useFetch from '../hooks/useFetch';
 
 interface IDate {
   toggleDisplay: () => void;
@@ -19,12 +20,23 @@ interface IDate {
   };
 }
 
+interface ILocation {
+  getData: () => void;
+  fetchedData: {
+    region_name?: string;
+    country_code?: string;
+  };
+}
+
 const TimeBlock = ({
   date,
   toggleDisplay,
   setDarkMode,
   displayMore,
 }: IDate) => {
+  // get location based on IP address from API
+  const { fetchedData }: ILocation = useFetch('https://freegeoip.app/json/');
+
   let icon;
   let greeting;
 
@@ -53,15 +65,22 @@ const TimeBlock = ({
     <div className='self-end'>
       <div className='px-6 pb-10'>
         <div className='flex text-white mb-4'>
-          {icon}
-          {greeting}
-          {greetingAddOn}
+          <span className='mr-4'>{icon}</span>
+          <span>
+            {greeting}
+            {greetingAddOn}
+          </span>
         </div>
         <div className='flex items-end text-white align-baseline mb-4'>
           <p className='text-8xl font-bold'>
             {date ? `${date.hrs}:${date.min}` : 'Loading'}
           </p>
           <p className=''>{date && date.timezone}</p>
+        </div>
+        <div className='mb-4'>
+          <p className='font-bold, text-white text-base'>{`IN ${fetchedData.region_name?.toUpperCase()}, ${
+            fetchedData.country_code
+          }`}</p>
         </div>
         <MoreButton toggleDisplay={toggleDisplay} />
       </div>
