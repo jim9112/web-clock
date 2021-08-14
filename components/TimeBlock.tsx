@@ -58,7 +58,7 @@ const TimeBlock = ({
           {greetingAddOn}
         </div>
         <div className='flex items-end text-white align-baseline mb-4'>
-          <p className='text-8xl'>
+          <p className='text-8xl font-bold'>
             {date ? `${date.hrs}:${date.min}` : 'Loading'}
           </p>
           <p className=''>{date && date.timezone}</p>

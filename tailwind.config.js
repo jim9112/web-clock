@@ -2,6 +2,9 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      main: ['Inter', 'sans-serif'],
+    },
     extend: {
       backgroundImage: (theme) => ({
         'day-mobile': "url('/assets/mobile/bg-image-daytime.jpg')",
