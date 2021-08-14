@@ -12,19 +12,23 @@ interface IDate {
 
 const ExpandedView = ({ date }: IDate) => {
   return (
-    <div className='w-full bg-gray-300'>
+    <div className='w-full bg-gray-300 px-6 py-12'>
       <ul>
-        <li>
-          CURRENT TIMEZONE <span>{date.fullTimezone}</span>
+        <li className='grid grid-flow-col items-center'>
+          <span className='text-xs'>CURRENT TIMEZONE </span>
+          <span className='justify-self-end text-xl'>{date.fullTimezone}</span>
         </li>
-        <li>
-          DAY OF THE YEAR <span>{date.dayOfYear}</span>
+        <li className='grid grid-flow-col items-center'>
+          <span className='text-xs'>DAY OF THE YEAR</span>
+          <span className='justify-self-end text-xl'>{date.dayOfYear}</span>
         </li>
-        <li>
-          DAY OF THE WEEK <span>{date.dayOfWeek}</span>
+        <li className='grid grid-flow-col items-center'>
+          <span className='text-xs'>DAY OF THE WEEK</span>
+          <span className='justify-self-end text-xl'>{date.dayOfWeek}</span>
         </li>
-        <li>
-          WEEK NUMBER <span>{date.weekNumber}</span>
+        <li className='grid grid-flow-col items-center'>
+          <span className='text-xs'>WEEK NUMBER</span>{' '}
+          <span className='justify-self-end text-xl'>{date.weekNumber}</span>
         </li>
       </ul>
     </div>

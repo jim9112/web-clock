@@ -28,7 +28,7 @@ const TimeBlock = ({
   let icon;
   let greeting;
 
-  // end off all greetings except on mobile
+  // end of all greetings except on mobile
   const greetingAddOn = (
     <span className='hidden md:inline'>, IT&apos;S CURRENTLY</span>
   );
