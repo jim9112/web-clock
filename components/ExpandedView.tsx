@@ -1,3 +1,5 @@
+import ExpandedViewItem from './ExpandedViewItem';
+
 interface IDate {
   date: {
     hrs: number;
@@ -14,22 +16,13 @@ const ExpandedView = ({ date }: IDate) => {
   return (
     <div className='w-full bg-gray-300 px-6 py-12'>
       <ul>
-        <li className='grid grid-flow-col items-center'>
-          <span className='text-xs'>CURRENT TIMEZONE </span>
-          <span className='justify-self-end text-xl'>{date.fullTimezone}</span>
-        </li>
-        <li className='grid grid-flow-col items-center'>
-          <span className='text-xs'>DAY OF THE YEAR</span>
-          <span className='justify-self-end text-xl'>{date.dayOfYear}</span>
-        </li>
-        <li className='grid grid-flow-col items-center'>
-          <span className='text-xs'>DAY OF THE WEEK</span>
-          <span className='justify-self-end text-xl'>{date.dayOfWeek}</span>
-        </li>
-        <li className='grid grid-flow-col items-center'>
-          <span className='text-xs'>WEEK NUMBER</span>{' '}
-          <span className='justify-self-end text-xl'>{date.weekNumber}</span>
-        </li>
+        <ExpandedViewItem
+          title='CURRENT TIMEZONE'
+          content={date.fullTimezone}
+        />
+        <ExpandedViewItem title='DAY OF THE YEAR' content={date.dayOfYear} />
+        <ExpandedViewItem title='DAY OF THE WEEK' content={date.dayOfWeek} />
+        <ExpandedViewItem title='WEEK NUMBER' content={date.weekNumber} />
       </ul>
     </div>
   );
