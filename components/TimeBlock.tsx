@@ -2,10 +2,12 @@ import Image from 'next/image';
 import sunIcon from '../public/assets/desktop/icon-sun.svg';
 import moonIcon from '../public/assets/desktop/icon-moon.svg';
 import MoreButton from './MoreButton';
+import ExpandedView from './ExpandedView';
 
 interface IDate {
   toggleDisplay: () => void;
   setDarkMode: any;
+  displayMore: boolean;
   date: {
     hrs: number;
     min: string;
@@ -13,7 +15,12 @@ interface IDate {
   };
 }
 
-const TimeBlock = ({ date, toggleDisplay, setDarkMode }: IDate) => {
+const TimeBlock = ({
+  date,
+  toggleDisplay,
+  setDarkMode,
+  displayMore,
+}: IDate) => {
   let icon;
   let greeting;
 
@@ -56,6 +63,7 @@ const TimeBlock = ({ date, toggleDisplay, setDarkMode }: IDate) => {
         </div>
         <MoreButton toggleDisplay={toggleDisplay} />
       </div>
+      {displayMore && <ExpandedView />}
     </div>
   );
 };

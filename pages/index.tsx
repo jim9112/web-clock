@@ -31,12 +31,13 @@ export default function Home() {
       </Head>
 
       <main className='w-full min-h-screen bg-day-mobile dark:bg-night-mobile bg-no-repeat bg-cover'>
-        <div className='grid w-full min-h-screen bg-gray-500 bg-opacity-30 py-8'>
+        <div className='grid w-full min-h-screen bg-gray-500 bg-opacity-30 pt-8'>
           {!displayMore && <QuoteComp />}
           <TimeBlock
             date={date}
             toggleDisplay={toggleDisplay}
             setDarkMode={setDarkMode}
+            displayMore={displayMore}
           />
         </div>
       </main>
