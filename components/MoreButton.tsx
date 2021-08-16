@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 import arrowIcon from '../public/assets/desktop/icon-arrow-up.svg';
 
 interface ICompProps {
@@ -6,16 +7,28 @@ interface ICompProps {
 }
 
 const MoreButton = ({ toggleDisplay }: ICompProps) => {
+  let buttonImage = useRef<any>(null);
+  const [openMore, setOpenMore] = useState(false);
+
+  const handleClick = () => {
+    toggleDisplay();
+    buttonImage.current.classList.toggle('rotate-180');
+    openMore ? setOpenMore(false) : setOpenMore(true);
+  };
+
   return (
     <button
       className='relative w-28 p-1 grid grid-flow-col items-center bg-white rounded-full cursor-pointer'
       type='button'
-      onClick={toggleDisplay}
+      onClick={handleClick}
     >
-      more
-      <div className='relative grid w-max justify-self-end'>
+      {!openMore ? <span>more</span> : <span>less</span>}
+      <div
+        ref={buttonImage}
+        className='relative grid w-max justify-self-end transform rotate-180 transition'
+      >
         <Image
-          className='transform rotate-180 '
+          className=''
           objectFit='contain'
           src={arrowIcon}
           alt='arrow icon'
