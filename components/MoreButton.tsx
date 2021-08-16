@@ -7,12 +7,12 @@ interface ICompProps {
 }
 
 const MoreButton = ({ toggleDisplay }: ICompProps) => {
-  let buttonImage = useRef<any>(null);
+  let buttonImage = useRef<null | HTMLDivElement>(null);
   const [openMore, setOpenMore] = useState(false);
 
   const handleClick = () => {
     toggleDisplay();
-    buttonImage.current.classList.toggle('rotate-180');
+    buttonImage.current?.classList.toggle('rotate-180');
     openMore ? setOpenMore(false) : setOpenMore(true);
   };
 
