@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 
 const useGetTime = () => {
+  const [loading, setLoading] = useState(true);
   const [date, setDate] = useState<{
     timezone: any;
     min: string;
@@ -35,11 +36,12 @@ const useGetTime = () => {
           fullTimezone: data.timezone,
         };
         setDate({ ...newDateGroup });
+        setLoading(false);
         console.log(date);
       })
       .catch((err) => console.error(err));
   }, []);
-  return { date };
+  return { date, loading };
 };
 
 export default useGetTime;

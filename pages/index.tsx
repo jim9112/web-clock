@@ -6,6 +6,7 @@ import TimeBlock from '../components/TimeBlock';
 import useGetTime from '../hooks/useGetTime';
 
 interface IDate {
+  loading: boolean;
   date: {
     hrs: number;
     min: string;
@@ -18,7 +19,7 @@ interface IDate {
 }
 
 export default function Home() {
-  const { date }: IDate = useGetTime();
+  const { date, loading }: IDate = useGetTime();
   const [displayMore, setDisplayMore] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -47,12 +48,16 @@ export default function Home() {
       <main className='w-full min-h-screen bg-day-mobile dark:bg-night-mobile bg-no-repeat bg-cover'>
         <div className='grid w-full min-h-screen bg-gray-500 bg-opacity-30 pt-8'>
           {!displayMore && <QuoteComp />}
-          <TimeBlock
-            date={date}
-            toggleDisplay={toggleDisplay}
-            setDarkMode={setDarkMode}
-            displayMore={displayMore}
-          />
+          {!loading ? (
+            <TimeBlock
+              date={date}
+              toggleDisplay={toggleDisplay}
+              setDarkMode={setDarkMode}
+              displayMore={displayMore}
+            />
+          ) : (
+            <h1>Loading</h1>
+          )}
         </div>
       </main>
     </div>
