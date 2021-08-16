@@ -22,7 +22,15 @@ const MoreButton = ({ toggleDisplay }: ICompProps) => {
       type='button'
       onClick={handleClick}
     >
-      {!openMore ? <span>more</span> : <span>less</span>}
+      {!openMore ? (
+        <span className='font-bold text-xs text-gray-500 tracking-widest'>
+          MORE
+        </span>
+      ) : (
+        <span className='font-bold text-xs text-gray-500 tracking-widest'>
+          LESS
+        </span>
+      )}
       <div
         ref={buttonImage}
         className='relative grid w-max justify-self-end transform rotate-180 transition'
