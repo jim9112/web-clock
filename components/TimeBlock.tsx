@@ -54,17 +54,17 @@ const TimeBlock = ({
 
   // determine which greeting to use based on time of day
   if (date.hrs >= 5 && date.hrs < 12) {
-    greeting = <p>GOOD MORNING</p>;
+    greeting = <span>GOOD MORNING</span>;
   } else if (date.hrs >= 12 && date.hrs < 16) {
-    greeting = <p>GOOD AFTERNOON</p>;
+    greeting = <span>GOOD AFTERNOON</span>;
   } else {
-    greeting = <p>GOOD EVENING</p>;
+    greeting = <span>GOOD EVENING</span>;
   }
 
   return (
     <div className='self-end'>
-      <div className='px-6 pb-10'>
-        <div className='flex text-white mb-4'>
+      <div className='px-6 sm:px-16 pb-10'>
+        <div className='flex text-white text-lg mb-4'>
           <span className='mr-4'>{icon}</span>
           <span>
             {greeting}
@@ -72,12 +72,12 @@ const TimeBlock = ({
           </span>
         </div>
         <div className='flex items-end text-white align-baseline mb-4'>
-          <p className='text-8xl font-bold'>
+          <p className='text-8xl sm:text-9xl font-bold'>
             {date ? `${date.hrs}:${date.min}` : 'Loading'}
           </p>
           <p className=''>{date && date.timezone}</p>
         </div>
-        <div className='mb-4'>
+        <div className='mb-12 sm:mb-20'>
           <p className='font-bold, text-white text-base'>{`IN ${fetchedData.region_name?.toUpperCase()}, ${
             fetchedData.country_code
           }`}</p>
