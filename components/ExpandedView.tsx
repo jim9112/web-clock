@@ -14,7 +14,7 @@ interface IDate {
 
 const ExpandedView = ({ date }: IDate) => {
   return (
-    <div className='w-full bg-gray-300 px-6 sm:px-16 py-12'>
+    <div className='w-full bg-gray-300 px-6 sm:px-16 lg:px-40 py-12'>
       <ul className='grid sm:grid-cols-2 gap-4 sm:gap-x-20'>
         <ExpandedViewItem
           title='CURRENT TIMEZONE'

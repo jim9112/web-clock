@@ -62,25 +62,27 @@ const TimeBlock = ({
   }
 
   return (
-    <div className='self-end'>
-      <div className='px-6 sm:px-16 pb-10'>
-        <div className='flex text-white text-lg mb-4'>
-          <span className='mr-4'>{icon}</span>
-          <span>
-            {greeting}
-            {greetingAddOn}
-          </span>
-        </div>
-        <div className='flex items-end text-white align-baseline mb-4'>
-          <p className='text-8xl sm:text-9xl font-bold'>
-            {date ? `${date.hrs}:${date.min}` : 'Loading'}
-          </p>
-          <p className=''>{date && date.timezone}</p>
-        </div>
-        <div className='mb-12 sm:mb-20'>
-          <p className='font-bold, text-white text-base'>{`IN ${fetchedData.region_name?.toUpperCase()}, ${
-            fetchedData.country_code
-          }`}</p>
+    <div className='self-end '>
+      <div className='px-6 sm:px-16 lg:px-40 pb-10 lg:grid lg:grid-cols-2 lg:mb-12'>
+        <div>
+          <div className='flex text-white text-lg mb-4'>
+            <span className='mr-4'>{icon}</span>
+            <span>
+              {greeting}
+              {greetingAddOn}
+            </span>
+          </div>
+          <div className='flex items-end text-white align-baseline mb-4'>
+            <p className='text-8xl sm:text-9xl font-bold'>
+              {date ? `${date.hrs}:${date.min}` : 'Loading'}
+            </p>
+            <p className=''>{date && date.timezone}</p>
+          </div>
+          <div className='mb-12 lg:mb-0 sm:mb-20'>
+            <p className='font-bold, text-white text-base'>{`IN ${fetchedData.region_name?.toUpperCase()}, ${
+              fetchedData.country_code
+            }`}</p>
+          </div>
         </div>
         <MoreButton toggleDisplay={toggleDisplay} />
       </div>

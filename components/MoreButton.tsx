@@ -18,7 +18,7 @@ const MoreButton = ({ toggleDisplay }: ICompProps) => {
 
   return (
     <button
-      className='relative w-28 p-1 grid grid-flow-col items-center bg-white rounded-full cursor-pointer'
+      className='lg:justify-self-end lg:self-end relative w-28 h-14 p-1 grid grid-flow-col items-center bg-white rounded-full cursor-pointer'
       type='button'
       onClick={handleClick}
     >
