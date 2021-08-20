@@ -7,6 +7,7 @@ import useGetTime from '../hooks/useGetTime';
 
 interface IDate {
   loading: boolean;
+  setDate: any;
   date: {
     hrs: number;
     min: string;
@@ -19,7 +20,7 @@ interface IDate {
 }
 
 export default function Home() {
-  const { date, loading }: IDate = useGetTime();
+  const { date, loading, setDate }: IDate = useGetTime();
   const [displayMore, setDisplayMore] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 

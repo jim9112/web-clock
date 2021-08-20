@@ -41,7 +41,22 @@ const useGetTime = () => {
       })
       .catch((err) => console.error(err));
   }, []);
-  return { date, loading };
-};
 
+  // keep time without doing additional API calls
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newMin = parseInt(date.min) + 1;
+      if (newMin < 60) {
+        setDate({ ...date, min: ('0' + newMin).slice(-2) });
+      } else if (newMin >= 60 && date.hrs < 23) {
+        setDate({ ...date, hrs: (date.hrs += 1), min: '00' });
+      } else if (newMin >= 60 && date.hrs >= 23) {
+        setDate({ ...date, hrs: 0, min: '00' });
+      }
+      console.log('min changed');
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [date]);
+  return { date, loading, setDate };
+};
 export default useGetTime;
